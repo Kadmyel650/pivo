@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="pt">
+<script>
+function changeLEDStatus() {
+nocache = "&nocache=" + Math.random() * 10;
+
+var request = new XMLHttpRequest();
+request.onreadystatechange = function() {
+if (this.readyState == 4) {
+if (this.status == 200) {
+if (this.responseText != null) {
+document.getElementById("led_status").innerHTML = this.responseText;
+}}}}
+request.open("GET", "?ledstatus=1" + nocache, true);
+request.send(null);
+}
+</script>
+<script>
+function changeLEDStatus1() {
+nocache = "&nocache=" + Math.random() * 10;
+
+var request = new XMLHttpRequest();
+request.onreadystatechange = function() {
+if (this.readyState == 4) {
+if (this.status == 200) {
+if (this.responseText != null) {
+document.getElementById("led_status1").innerHTML = this.responseText;
+}}}}
+request.open("GET", "?ledstatus1=1" + nocache, true);
+
+request.send(null);
+}
+</script>
+</head>
+<body>
+
+<h1>Estado do Pivo </h1>
+<div><span id="led_status">
+DESLIGADO
+</span> | <button onclick="changeLEDStatus()"><h3>Para Frente</h3></button> </div>
+<br> </br>
+<div><span id="led_status1">
+DESLIGADO
+
+</span> | <button onclick="changeLEDStatus1()"><h3>&nbspPara  Tr&aacute;s  &nbsp </h3></button> </div>
+</body>
+</html>
